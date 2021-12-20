@@ -24,7 +24,7 @@ jobs:
           python -m pip install lief z3-solver
       - name: Install Triton
         run: |
-          cmake -S . -B build_x64 -DCMAKE_INSTALL_PREFIX=install_dir -G "Visual Studio 16 2019" -A x64 -DBOOST_INCLUDEDIR="$env:VCPKG_INSTALLATION_ROOT\installed\x64-windows\include\boost" -DZ3_INCLUDE_DIRS="$env:VCPKG_INSTALLATION_ROOT\installed\x64-windows\include" -DCAPSTONE_INCLUDE_DIRS="$env:VCPKG_INSTALLATION_ROOT\installed\x64-windows\include\capstone"
+          cmake -S . -B build_x64 -DCMAKE_INSTALL_PREFIX=install_dir -G "Visual Studio 16 2019" -A x64 -DBoost_INCLUDE_DIR="$env:VCPKG_INSTALLATION_ROOT\installed\x64-windows\include\boost" -DZ3_INCLUDE_DIRS="$env:VCPKG_INSTALLATION_ROOT\installed\x64-windows\include" -DCAPSTONE_INCLUDE_DIRS="$env:VCPKG_INSTALLATION_ROOT\installed\x64-windows\include\capstone"
           cmake --build build_x64 --target install --config Release --parallel 2
       - name: Unittests
         run: |
